@@ -23,6 +23,13 @@ trong bảng dữ liệu:
             Nhằm lấy cột "quantity" có giá trị nào băng 15
             hoặc lấy cột "item_name" có tên gọi bằng "Nantucket Nectar"
   
-  =>Vậy sẽ lấy cột "quality" bằng 15 hoặc lấy cột "item_name" bằng "Nantucket Nectar" hoặc cột có cả hai giá trị trên
+  => Vậy sẽ lấy cột "quality" bằng 15 hoặc lấy cột "item_name" bằng "Nantucket Nectar" hoặc cột có cả hai giá trị trên
   
         Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id', 'quantity', 'item_name']]
+          Nhằm lấy cột "quantity" có giá trị nào bằng 2
+          và lấy cột "item_name" có giá trị là "Nantucket Nectar"
+          trong đó từ bảng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
+
+  => Vậy sẽ lấy cột "quantity" có giá trị bằng 2 và lấy cột "item_name" có giá trị là "Nantucket Nectar" trong bàng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
+  
+ 
