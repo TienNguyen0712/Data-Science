@@ -25,8 +25,9 @@ Vd: df.loc[(df.quantity == 15) | (df.item_name == "Nantucket Nectar")]
             hoặc lấy cột "item_name" có tên gọi bằng "Nantucket Nectar"
   
   => Vậy sẽ lấy cột "quality" bằng 15 hoặc lấy cột "item_name" bằng "Nantucket Nectar" hoặc cột có cả hai giá trị trên
-  
-        Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id', 'quantity', 'item_name']]
+```Python  
+Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id', 'quantity', 'item_name']]
+```
           Nhằm lấy cột "quantity" có giá trị nào bằng 2
           và lấy cột "item_name" có giá trị là "Nantucket Nectar"
           trong đó từ bảng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
@@ -34,8 +35,9 @@ Vd: df.loc[(df.quantity == 15) | (df.item_name == "Nantucket Nectar")]
   => Vậy sẽ lấy cột "quantity" có giá trị bằng 2 và lấy cột "item_name" có giá trị là "Nantucket Nectar" trong bàng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
 #### Apply()
 - Câu lệnh Apply sử dụng nhằm mục đích áp dụng chức năng cho từng cột từng dòng
-
+```Python
           Vd: df.item_price.apply(lambda x : x.replace('$', ''))
+  ```
           Lệnh trên nhằm lấy cột item_price dùng lệnh apply() tức áp dụng cho tất cả cá hàng   
           trong cột "item_price" "lamda" : là lệnh nhật các đầu vào trong trường hợp trên là các    
           hàng của cột item_price lệnh "replace" nhăm thay thế "$" thành ''
