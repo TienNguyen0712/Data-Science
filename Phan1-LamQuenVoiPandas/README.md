@@ -36,7 +36,8 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
   - Khác với loc thì iloc giúp lấy các hàng có index = n
     Cú pháp :
     ```Python
-                df.iloc[hàng có index muốn láy] //Ví dụ là 10 thì sẽ lấy hàng thứ 9
+                df.iloc[hàng có index muốn láy]   
+                //Ví dụ là 10 thì sẽ lấy hàng thứ 9
     ```
     -Câu lệnh trên nhằm lấy trong bảng dữ liệu hàng có số n thì sẽ lấy hàng thứ n - 1
     -Chỉ in ra theo kiểu "series"
@@ -49,7 +50,8 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
     -Ngoài ra "iloc" còn quan trọng trong việc lấy các cột tùy ý và có thể hữu dụng cho việc dự đoán cũng như phân tích
     ```Python
 
-                df.iloc[index bắt đầu : index kết thúc, :-1] //In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
+                df.iloc[index bắt đầu : index kết thúc, :-1]    
+                //In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
     ```
     -Nếu xây dựng các model cho bài toán ta có thể gắn biến x cho câu lệnh trên và biến y cho câu lệnh lấy hàng cuối cùng
     ```Python
@@ -79,4 +81,25 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
 - Dùng câu lệnh dtype()
   ***Lưu ý khi dùng câu lệnh dtype***
 ```Code
-``` 
+            'b'       boolean
+'i'       (signed) integer
+'u'       unsigned integer
+'f'       floating-point
+'c'       complex-floating point
+'O'       (Python) objects
+'S', 'a'  (byte-)string
+'U'       Unicode
+'V'       raw data (void)
+```
+#### Tạo một cột mới 
+-Ví dụ muốn tạo thêm một cột "total_price" bằng tích của  "item_price" và "quantity"
+```Python
+            df["total_price"] = df["item_price"]*df["quantity"]
+```
+Ví dụ muốn biết tổng toàn bộ doanh thu
+```Python
+            revenue = df["total_price"].sum()
+            print(revenue)
+```
+#### Xác định xem vật nào xuất hiện nhiều nhất trong bảng dữ liệu ####
+#### Group By ####
