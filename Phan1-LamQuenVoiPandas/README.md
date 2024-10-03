@@ -33,6 +33,28 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
           trong đó từ bảng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
 
   => Vậy sẽ lấy cột "quantity" có giá trị bằng 2 và lấy cột "item_name" có giá trị là "Nantucket Nectar" trong bàng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
+  - Khác với loc thì iloc giúp lấy các hàng có index = n
+    Cú pháp :
+    ```Python
+                df.iloc[hàng có index muốn láy] //Ví dụ là 10 thì sẽ lấy hàng thứ 9
+    ```
+    -Câu lệnh trên nhằm lấy trong bảng dữ liệu hàng có số n thì sẽ lấy hàng thứ n - 1
+    -Chỉ in ra theo kiểu "series"
+    -Muốn in ra theo hàng trên bảng dữ liệu thì thêm dấu "[]" vào trong "hàng có index muốn lấy"
+    ~Ngoài ra còn có thể dùng câu lệnh "iloc" để lấy hàng bắt đầu cũng như kết thúc **Dựa vào index**~
+    ```Pyhton
+
+               df.iloc[index bắt đầu : index kết thúc]
+    ```
+    -Ngoài ra "iloc" còn quan trọng trong việc lấy các cột tùy ý và có thể hữu dụng cho việc dự đoán cũng như phân tích
+    ```Python
+
+                df.iloc[index bắt đầu : index kết thúc, :-1] //In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
+    ```
+    -Nếu xây dựng các model cho bài toán ta có thể gắn biến x cho câu lệnh trên và biến y cho câu lệnh lấy hàng cuối cùng
+    ```Python
+                df.iloc[index bắt đầu : index kết thúc, -1] //Câu lệnh lấy cột cuối
+    ```
 #### Apply()
 - Câu lệnh Apply sử dụng nhằm mục đích áp dụng chức năng cho từng cột từng dòng
 ```Python
@@ -51,7 +73,10 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
   ```Python
   df.item_price = df.item_price.apply(lambda x : float(x.replace('$', '')))
   ```
-  *Lưu toàn bộ cột "item_price" trong bảng dữ liệu theo câu lệnh Apply()*
+  *Lưu toàn bộ cột "item_price" trong bảng dữ liệu theo câu lệnh Apply()*   
+  
 Để kiểm tra kiểu dữ liệu của toàn bộ dữ liệu trong bảng dữ liệu : 
-Dùng câu lệnh dtype()
- 
+- Dùng câu lệnh dtype()
+  ***Lưu ý khi dùng câu lệnh dtype***
+```Code
+``` 
