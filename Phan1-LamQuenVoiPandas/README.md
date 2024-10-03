@@ -52,5 +52,6 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
   df.item_price = df.item_price.apply(lambda x : float(x.replace('$', '')))
   ```
   *Lưu toàn bộ cột "item_price" trong bảng dữ liệu theo câu lệnh Apply()*
-          
+Để kiểm tra kiểu dữ liệu của toàn bộ dữ liệu trong bảng dữ liệu : 
+Dùng câu lệnh dtype()
  
