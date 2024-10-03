@@ -31,5 +31,22 @@ trong bảng dữ liệu:
           trong đó từ bảng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
 
   => Vậy sẽ lấy cột "quantity" có giá trị bằng 2 và lấy cột "item_name" có giá trị là "Nantucket Nectar" trong bàng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
-  
+#### Apply()
+- Câu lệnh Apply sử dụng nhằm mục đích áp dụng chức năng cho từng cột từng dòng
+
+          Vd: df.item_price.apply(lambda x : x.replace('$', ''))
+          Lệnh trên nhằm lấy cột item_price dùng lệnh apply() tức áp dụng cho tất cả cá hàng t            trong cột "item_price" "lamda" : là lệnh nhật các đầu vào trong trường hợp trên là các
+          hàng của cột item_price lệnh "replace" nhăm thay thế "$" thành ''
+  => Vậy câu lệnh trên nghĩa chọn cột "item_price" dùng apply() ấp dụng cho tất cả cá hàng của cột bằng cách lưu vào biến lamda thay thế toàn bộ dấu "$" thành ''
+  **Lưu ý phải đổi kiểu dữ liệu trong trường hợp trên có thể viết**
+  ```Python
+  df.item_price.apply(lambda x : float(x.replace('$', '')))
+  ```
+  **Lệnh float nhằm chuyển kiểu dữ liệu từ Objext sang thành Float**
+  **Lưu ý kế tiếp lệnh apply() chỉ áp dụng tạm thời cho dòng câu lệnh nếu muốn lưu hoàn toàn thì phải gán ngược lại với giá trị được lưu**
+  ```Python
+  df.item_price = df.item_price.apply(lambda x : float(x.replace('$', '')))
+  ```
+  *Lưu toàn bộ cột "item_price" trong bảng dữ liệu theo câu lệnh Apply()*
+          
  
