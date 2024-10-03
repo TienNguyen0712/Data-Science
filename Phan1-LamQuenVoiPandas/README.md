@@ -18,8 +18,9 @@
 #### loc và iloc
 - loc là viết tắt của located tức là vị trí câu lệnh loc cho phép lấy dữ liệu từ các cột mong muốn 
 trong bảng dữ liệu:
-
-        Vd: df.loc[(df.quantity == 15) | (df.item_name == "Nantucket Nectar")]      
+```Python
+Vd: df.loc[(df.quantity == 15) | (df.item_name == "Nantucket Nectar")]
+```   
             Nhằm lấy cột "quantity" có giá trị nào băng 15
             hoặc lấy cột "item_name" có tên gọi bằng "Nantucket Nectar"
   
@@ -35,7 +36,8 @@ trong bảng dữ liệu:
 - Câu lệnh Apply sử dụng nhằm mục đích áp dụng chức năng cho từng cột từng dòng
 
           Vd: df.item_price.apply(lambda x : x.replace('$', ''))
-          Lệnh trên nhằm lấy cột item_price dùng lệnh apply() tức áp dụng cho tất cả cá hàng t            trong cột "item_price" "lamda" : là lệnh nhật các đầu vào trong trường hợp trên là các
+          Lệnh trên nhằm lấy cột item_price dùng lệnh apply() tức áp dụng cho tất cả cá hàng   
+          trong cột "item_price" "lamda" : là lệnh nhật các đầu vào trong trường hợp trên là các    
           hàng của cột item_price lệnh "replace" nhăm thay thế "$" thành ''
   => Vậy câu lệnh trên nghĩa chọn cột "item_price" dùng apply() ấp dụng cho tất cả cá hàng của cột bằng cách lưu vào biến lamda thay thế toàn bộ dấu "$" thành ''
   **Lưu ý phải đổi kiểu dữ liệu trong trường hợp trên có thể viết**
