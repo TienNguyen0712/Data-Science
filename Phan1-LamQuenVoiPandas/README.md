@@ -40,9 +40,9 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
                 //Ví dụ là 10 thì sẽ lấy hàng thứ 9
     ```
     -Câu lệnh trên nhằm lấy trong bảng dữ liệu hàng có số n thì sẽ lấy hàng thứ n - 1
-    -Chỉ in ra theo kiểu "series"
-    -Muốn in ra theo hàng trên bảng dữ liệu thì thêm dấu "[]" vào trong "hàng có index muốn lấy"
-    ~Ngoài ra còn có thể dùng câu lệnh "iloc" để lấy hàng bắt đầu cũng như kết thúc **Dựa vào index**~
+    -Chỉ in ra theo kiểu "series" 
+    -Muốn in ra theo hàng trên bảng dữ liệu thì thêm dấu "[]" vào trong "hàng có index muốn lấy" 
+    -Ngoài ra còn có thể dùng câu lệnh "iloc" để lấy hàng bắt đầu cũng như kết thúc **Dựa vào index**
     ```Pyhton
 
                df.iloc[index bắt đầu : index kết thúc]
