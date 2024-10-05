@@ -143,7 +143,8 @@ Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_nam
 -Ngoài ra, trong Pandas còn có hàm chuyên dùng để tính những giá trị khác nhau có trong bảng chính là hàm **nunique()**
 ```Python
             df.item_name.nunique()
-                        #Vân in ra giá trị giống với khi xài "  df.item_name.values_counts().count()"
+
+            #Vân in ra giá trị giống với khi xài "  df.item_name.values_counts().count()"
 ```
 ### Đó là những thao tác quan trọng trong việc thao tác trên bảng dữ liệu và tìm kiếm thông tin mà mình muốn   
 ### Để có thể đến các bước tiếp theo nhằm xây dựng các module máy học, thực hiện thuật toán, hay dự đoán
