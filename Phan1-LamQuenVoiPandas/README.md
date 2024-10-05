@@ -115,16 +115,16 @@ lần xuất hiện của dữ liệu có trong bảng
 
             df.groupby("item_name").apply(print)
 
-            #Đê cho bảng dược xuất hiện sử dụng câu lệnh Apply(print nhằm dán các tác động lên từng   
-            hàng của cột "item_name
+            """Đê cho bảng dược xuất hiện sử dụng câu lệnh Apply(print nhằm dán các tác động lên từng   
+            hàng của cột "item_name" """
 ```
 Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_name" tức "quantity" do đó ta cần thêm dấu "[]"  
 để chỉ in ra cột "quantity"
 ```Python
             df.groupby("item_name")["quantiy"].apply(print)
 
-            #Câu lệnh trên đặt cột "quantity" vào dấu ngoặc vuông nhằm chỉ lấy cột "quantity"
-            ứng với cột "item_name" và in ra ngoài màn hình
+            """Câu lệnh trên đặt cột "quantity" vào dấu ngoặc vuông nhằm chỉ lấy cột "quantity"
+            ứng với cột "item_name" và in ra ngoài màn hình"""
 ```
 Để cộng lại ta dùng hàm **sum()**
 ```Python
@@ -158,7 +158,7 @@ Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_nam
 ```Python
             df.item_name.nunique()
 
-            #Vân in ra giá trị giống với khi xài "  df.item_name.values_counts().count()"
+            #Vân in ra giá trị giống với khi xài  "df.item_name.values_counts().count()"
 ```
 ### Đó là những thao tác quan trọng trong việc thao tác trên bảng dữ liệu và tìm kiếm thông tin mà mình muốn   
 ### Để có thể đến các bước tiếp theo nhằm xây dựng các module máy học, thực hiện thuật toán, hay dự đoán
