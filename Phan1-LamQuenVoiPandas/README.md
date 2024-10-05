@@ -55,7 +55,7 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
     ```
     -Nếu xây dựng các model cho bài toán ta có thể gắn biến x cho câu lệnh trên và biến y cho câu lệnh lấy hàng cuối cùng
     ```Python
-                df.iloc[index bắt đầu : index kết thúc, -1] //Câu lệnh lấy cột cuối
+                df.iloc[index bắt đầu : index kết thúc, -1] ##Câu lệnh lấy cột cuối
     ```
 #### Apply()
 - Câu lệnh Apply sử dụng nhằm mục đích áp dụng chức năng cho từng cột từng dòng
