@@ -37,7 +37,7 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
     Cú pháp :
     ```Python
                 df.iloc[hàng có index muốn láy]   
-                //Ví dụ là 10 thì sẽ lấy hàng thứ 9
+                Ví dụ là 10 thì sẽ lấy hàng thứ 9
     ```
     -Câu lệnh trên nhằm lấy trong bảng dữ liệu hàng có số n thì sẽ lấy hàng thứ n - 1
     -Chỉ in ra theo kiểu "series" 
@@ -51,7 +51,7 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
     ```Python
 
                 df.iloc[index bắt đầu : index kết thúc, :-1]    
-                //In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
+                In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
     ```
     -Nếu xây dựng các model cho bài toán ta có thể gắn biến x cho câu lệnh trên và biến y cho câu lệnh lấy hàng cuối cùng
     ```Python
