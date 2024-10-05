@@ -37,7 +37,7 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
     Cú pháp :
     ```Python
                 df.iloc[hàng có index muốn láy]   
-                Ví dụ là 10 thì sẽ lấy hàng thứ 9
+                ##Ví dụ là 10 thì sẽ lấy hàng thứ 9
     ```
     -Câu lệnh trên nhằm lấy trong bảng dữ liệu hàng có số n thì sẽ lấy hàng thứ n - 1
     -Chỉ in ra theo kiểu "series" 
@@ -51,7 +51,7 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
     ```Python
 
                 df.iloc[index bắt đầu : index kết thúc, :-1]    
-                In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
+                ##In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
     ```
     -Nếu xây dựng các model cho bài toán ta có thể gắn biến x cho câu lệnh trên và biến y cho câu lệnh lấy hàng cuối cùng
     ```Python
@@ -81,7 +81,7 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
 - Dùng câu lệnh dtype()
   ***Lưu ý khi dùng câu lệnh dtype***
 ```Code
-            'b'       boolean
+'b'       boolean
 'i'       (signed) integer
 'u'       unsigned integer
 'f'       floating-point
@@ -103,3 +103,47 @@ Ví dụ muốn biết tổng toàn bộ doanh thu
 ```
 #### Xác định xem vật nào xuất hiện nhiều nhất trong bảng dữ liệu ####
 #### Group By ####
+Lệnh Group By dùng khi muốn gộp các bảng dữ liệu nhỏ theo các tên của các cột để biết được có bao nhiêu   
+lần xuất hiện của dữ liệu có trong bảng 
+```Python
+
+            df.groupby("item_name") 
+            #Hàm trên chỉ trả lại thông báo đã tạo ra một bảng dữ liệu mới chứ không tả lại giá trị
+            df.groupby("item_name").apply(print)
+            #Đê cho bảng dược xuất hiện sử dụng câu lệnh Apply(print nhằm dán các tác động lên từng   
+            hàng của cột "item_name
+```
+Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_name" tức "quantity" do đó ta cần thêm dấu "[]"  
+để chỉ in ra cột "quantity"
+```Python
+            df.groupby("item_name")["quantiy"].apply(print)
+            #Câu lệnh trên đặt cột "quantity" vào dấu ngoặc vuông nhằm chỉ lấy cột "quantity"
+            ứng với cột "item_name" và in ra ngoài màn hình
+```
+Để cộng lại ta dùng hàm **sum()**
+```Python
+            df.groupby("item_name")["quantity].sum()
+            #Câu lệnh trên sẽ in ra "quantity" của từng item ứng với "item_name" khác nhau có trong băng
+```
+Để sắp xếp giá trị tăng hay giảm dần ta dùng hàm **sort_values()**
+```Python
+            c = df.groupby("item_name")["quantity].sum() #Câu lệnh trên nhằm gán biến c cho tổng của các item
+            c.sort_values() #Câu lệnh này rắp xếp các gia trí, dữ liệu của bảng
+```
+#### Lưu ý: Nếu sắp xếp giảm dần thì cho "sort_values(ascending = false)" mặc định của "sort_values" là tăng dần
+-Dùng hàm head() để in ra top món hàng cao nhất mà bạn mong muốn 
+#### Unique Values: Hay là dữ liệu không trung lặp ( Dữ liệu khác nhau )
+-Dùng hàm **values_counts()** để đếm số lần giá trị khác nhau xuất hiện trong bảng theo một giá trị nào đó
+```Python
+            df.item_name.values_counts()  
+            #Giống với hàm groupby() hàm values_counts() giúp tính những món hàng
+            khác nhau trong cột "item_name"
+```
+-Dùng thêm một hàm **counts()** để đếm xem tông cộng bao nhiêu món hàng được đếm ra
+-Ngoài ra, trong Pandas còn có hàm chuyên dùng để tính những giá trị khác nhau có trong bảng chính là hàm **nunique()**
+```Python
+            df.item_name.nunique() #Vân in ra giá trị giống với khi xài "  df.item_name.values_counts().count()"
+```
+### Đó là những thao tác quan trọng trong việc thao tác trên bảng dữ liệu và tìm kiếm thông tin mà mình muốn   
+### Để có thể đến các bước tiếp theo nhằm xây dựng các module máy học, thực hiện thuật toán, hay dự đoán
+            
