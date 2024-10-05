@@ -129,7 +129,8 @@ Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_nam
 Để cộng lại ta dùng hàm **sum()**
 ```Python
             df.groupby("item_name")["quantity].sum()
-                        #Câu lệnh trên sẽ in ra "quantity" của từng item ứng với "item_name" khác nhau có trong băng
+
+            #Câu lệnh trên sẽ in ra "quantity" của từng item ứng với "item_name" khác nhau có trong băng
 ```
 Để sắp xếp giá trị tăng hay giảm dần ta dùng hàm **sort_values()**
 ```Python
@@ -148,9 +149,9 @@ Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_nam
 ```Python
             df.item_name.values_counts()
   
-            #Giống với hàm groupby() hàm values_counts() giúp tính những món hàng
+            """Giống với hàm groupby() hàm values_counts() giúp tính những món hàng
 
-            khác nhau trong cột "item_name"
+            khác nhau trong cột "item_name" """
 ```
 -Dùng thêm một hàm **counts()** để đếm xem tông cộng bao nhiêu món hàng được đếm ra
 -Ngoài ra, trong Pandas còn có hàm chuyên dùng để tính những giá trị khác nhau có trong bảng chính là hàm **nunique()**
