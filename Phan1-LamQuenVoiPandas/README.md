@@ -30,7 +30,7 @@ users.to_csv("exported-users.csv")
 ```
 
 # Làm quen và Tìm hiểu
-### shape : Trả về (Row, Column)
+### shape : Trả về (Row, Column): Cột và Hàng
 ```Python
 df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4],
                    'col3': [5, 6]})
@@ -42,7 +42,7 @@ df.shape
 ```Python
 df.info()
 ```
-- We will understand dtype of cols, how many non-null value of DF
+-Ta sẽ hiểu kiểu dữ liệu của cột, bao nhiêu giá trị null của bảng dữ liệu
 ```Python
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 4622 entries, 0 to 4621
@@ -58,21 +58,21 @@ dtypes: int64(2), object(3)
 memory usage: 180.7+ KB
 ````
 
-### describe() : Generate descriptive statistics.
+### describe() : Phân tích trực quan các dữ liệu có trong bảng
 ```Python
-chipo.describe() #Notice: by default, only the numeric columns are returned. 
-chipo.describe(include = "all") #Notice: By default, only the numeric columns are returned.
+chipo.describe() #Notice: mặc định chỉ có kiểu dữ liệu số được trả lai 
+chipo.describe(include = "all") #Notice: Mặc định, chỉ trả lại kiểu dữ liệu số
 ```
 
 
-### dtype : Return data type of specific column
-- `df.col_name.dtype` return the data type of that column
+### dtype : Trả lại kiểu dữ liệu của các dữ liệu trong cột
+- `df.col_name.dtype` trả lại kiểu dữ liệu của cột
 ```Python
 df.item_price.dtype
 #'O'     (Python) objects
 ```
 
-- Please note: dtype will return below special character
+- Please note: dtype sẽ trả lại các kiểu dữ liệu với các ký hiệu đặc biệt
 ```Python
 'b'       boolean
 'i'       (signed) integer
@@ -87,29 +87,29 @@ df.item_price.dtype
 
 ## loc vs iloc
 ### loc
-- `loc`: is **label-based**, which means that we have to specify the "name of the rows and columns" that we need to filter out.
-#### Find all the rows based on 1 or more conditions in a column
+- `loc`: is **label-based**, nhằm lấy ra "tên của hàng và cột" mà ta muốn lấy ra.
+#### Tìm tất cả các cột hay hàng dựa theo điều kiện
 ```Python
-# select all rows with a condition
+# Chọn tất cả hàng và cột có số tuổi lớn hơn hoặc bằng 15
 data.loc[data.age >= 15]
-# select all rows with multiple conditions
+# Chọn tất cả các cột theo nhiều điều kiện gộp
 data.loc[(data.age >= 12) & (data.gender == 'M')]
 ```
 ![image](https://user-images.githubusercontent.com/64508435/106067849-7abaec00-613a-11eb-8cbe-f9aa5e2c6202.png)
 
-#### Select only required columns with conditions
+#### Chỉ lựa chọn 1 cột phù hợp với cột vừa lấy ra từ bảng theo điều kiện 
 ```Python
-# Update the values of multiple columns on selected rows
+# Thay đổi dữ liệu đầu ra dựa theo cột được lấy từ trong bảng dữ liệu
 chipo.loc[(chipo.quantity == 7) & (chipo.item_name == 'Bottled Water'), ['item_name', 'item_price']] = ['Tra Xanh', 0]
-# Select only required columns with a condition
+# Chỉ chọn duy nhất những cột trong dấu "[]" nhằm thỏa điều kiện
 chipo.loc[(chipo.quantity > 5), ['item_name', 'quantity', 'item_price']]
 ```
 <img width="381" alt="Screenshot 2021-01-28 at 7 26 04 AM" src="https://user-images.githubusercontent.com/64508435/106067706-32033300-613a-11eb-98ce-114c4c0f9dd6.png">
 
 ### iloc
-- `iloc`: is **index-based**, which means that we have to specify the "integer index-based" that we need to filter out.
-- `.iloc[]` allowed inputs are:
-  #### Selecting Rows
+- `iloc`: is **index-based**, cho phép chọn các cột và hàng có index "integer index-based" rằng ta cần lấy ra.
+- `.iloc[]` chấp nhận input là:
+  #### Chọn hàng
   - An integer, e.g. `dataset.iloc[0]` > return row 0 in `<class 'pandas.core.series.Series'>`
   ```Python
   Country      France
@@ -117,20 +117,22 @@ chipo.loc[(chipo.quantity > 5), ['item_name', 'quantity', 'item_price']]
   Salary        72000
   Purchased        No
   ```
-  - A list or array of integers, e.g.`dataset.iloc[[0]]` > return row 0 in DataFrame format
+  -Danh sách hay mảng số nguyên
+  - A list or array of integers, e.g.`dataset.iloc[[0]]` > trả về cột và hàng có index bằng 0 trong Bảng dữ liệu
   ```Python
      Country   Age   Salary  Purchased
   0  France    44.0  72000.0        No
   ```
-  - A slice object with ints, e.g. `dataset.iloc[:3]` > return row 0 up to row 3 in DataFrame format
+  -Kiểu Object 
+  - A slice object with ints, e.g. `dataset.iloc[:3]` > trả về 3 cột từ index 0 đến 3 và tát cả các cột có trong Bảng dữ liệu 
   ```Python
        Country   Age   Salary Purchased
   0    France   44.0  72000.0        No
   1    Spain    27.0  48000.0       Yes
   2    Germany  30.0  54000.0        No
   ```
-  #### Selecting Rows & Columns
-  - Select First 3 Rows & up to Last Columns (not included) `X = dataset.iloc[:3, :-1]`
+  #### Chọn hàng và cột
+  - Chọn 3 Hàng đầu tiên và lấy tất cả cột ngoại trừ Cột cuối `X = dataset.iloc[:3, :-1]`
   ```Python
        Country   Age   Salary
   0   France  44.0  72000.0
@@ -146,8 +148,8 @@ chipo.loc[(chipo.quantity > 5), ['item_name', 'quantity', 'item_price']]
  ['Germany' 30.0 54000.0]]
 ```
 
-## Access Rows of Data Frame
-### Check index of DF
+## Đếm xem có bao nhiêu cột trong Bảng dữ liệu
+### Kiểm tra Index của Bảng dữ liệu
 ```Python
 df.index
 #RangeIndex(start=0, stop=4622, step=1)
@@ -155,23 +157,23 @@ df.index
 
 [(Back to top)](#table-of-contents)
 
-## Access Columns of Data Frame
-### Print the name of all the columns
+## Kiểm tra cột của bàng dữ liệu
+### In ra tên của tất cả các cột của Bảng dữ liệu
 ```Python
 list(df.columns)
 #['order_id', 'quantity', 'item_name', 'choice_description','item_price', 'revenue']
 ```
-### Access column
+### Tìm hiểu sâu về cột
 ```Python
-# Counting how many values in the column
+# Đếm xem có bao nhiêu giá trị trong cột
 df.col_name.count()
-# Take the mean of values in the column
+# Lấy mean của giá trị trong cột
 df["col_name"].mean()
 ```
-### value_counts() : Return a Series containing counts of unique values
+### value_counts() : Trả về danh sách các dữ liệu khác nhau
 ```Python
 index = pd.Index([3, 1, 2, 3, 4, np.nan])
-#dropna=False will also consider NaN as a unique value 
+#dropna=False sễ xem np.nan là kiểu dữ liệu khác nhau
 index.value_counts(dropna=False)
 #Return: 
 3.0    2
@@ -181,9 +183,9 @@ NaN    1
 1.0    1
 dtype: int64
 ```
-### Calculate total unique values in a columns
+### Tính tón tổng giá trị khác nhau trong bảng
 ```Python
-#How many unique values 
+#How many unique values : Có bao nhiêu giá trị khác nhau
 index.value_counts().count()
 
 index.nunique()
@@ -192,28 +194,28 @@ index.nunique()
 
 [(Back to top)](#table-of-contents)
 # Manipulating Data
-## Missing Values
-### Filling Missing Values with fillna()
+## Missing Values: Dữ liệu bị mất
+### Thay thế Missing Values với fillna() mà vẫn giữ nguyên số hàng và số cột
 - To fill `nan` value with a v
 ```Python
 car_sales_missing["Odometer"].fillna(car_sales_missing["Odometer"].mean(), inplace = True)
 ```
-### Dropping Missing Values with dropna()
-- To drop columns containing Missing Values
+### Loại bỏ các dữ liệu bị mất với dropna()
+- Để loại bỏ các hàng có dữ liệu Missing Values
 ```Python
 car_sales_missing.dropna(inplace=True)
 ```
-## Drop a column
+## Loại bỏ cột
 
 ```Python
-car_sales.drop("Passed road safety", axis = 1) # axis = 1 if you want to drop a column
+car_sales.drop("Passed road safety", axis = 1) # axis = 1 Nếu ta muốn loại bỏ cột
 ```
 [(Back to top)](#table-of-contents)
-# Grouping
+# Gộp
 <img width="707" alt="Screenshot 2021-01-23 at 10 47 21 PM" src="https://user-images.githubusercontent.com/64508435/105590696-195aec00-5dcd-11eb-894d-3953d6ea8180.png">
 
-## Basic Grouping
-- Grouping by "item_name" column & take the sum of "quantity" column
+## Grouping cơ bản
+- Gộp cột "item_name" và lấy tổng giá trị trong cột "quantity"
 - Method #1 : `df.groupby("item_name")`
 
 ```Python
