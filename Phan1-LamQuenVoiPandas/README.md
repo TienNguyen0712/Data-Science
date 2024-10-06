@@ -1,43 +1,44 @@
 
-# Pandas Cheat Sheet
-# Table of contents
-- [Table of contents](#table-of-contents)
-- [Import & Export Data](#import-export-data)
-- [Getting and knowing](#getting-and-knowing)
-  - [loc vs iloc](#loc-vs-iloc)
-  - [Access Rows of Data Frame](#access-columns-of-data-frame)
-  - [Access Columns of Data Frame](#access-columns-of-data-frame)
-- [Manipulating Data](#manipulating-data)
-- [Grouping](#grouping)
-  - [Basic Grouping](#basic-grouping)
+# Làm quen với thư viện Pandas
+# Mục lục
+- [Bảng nội dung dữ liệu](#table-of-contents)
+- [Khai báo & Biến đổi Dữ liệu](#import-export-data)
+- [Bước dầu và Tìm hiểu](#getting-and-knowing)
+  - [loc và iloc](#loc-vs-iloc)
+  - [Nhận biết Hàng của Bảng Dữ Liệu](#access-columns-of-data-frame)
+  - [Nhận biết Cột của Bảng Dữ Liệu](#access-columns-of-data-frame)
+- [Chuyển đổi Dữ Liệu](#manipulating-data)
+- [Grouping: Gộp](#grouping)
+  - [Grouping Cơ bản](#basic-grouping)
 
 
-# Import Export Data
-### Import with Different Separator
+# Khai báo và Chuyển đổi dữ liệu
+### Khai báo với các kiểu dữ liệu khác nhau
 ```Python
 users = pd.read_csv('user.csv', sep='|')
 chipo = pd.read_csv(url, sep = "\t")
 ```
 <img height="500" alt="pandas-anatomy-of-a-dataframe" src="https://user-images.githubusercontent.com/64508435/111490410-f833cd80-8775-11eb-8527-daf08dc8e91a.png">
 
-#### Renaming Index
+#### Thay đỏi tên Index
 ```Python
 users = pd.read_csv('u.user', sep='|', index_col='user_id')
 ```
-### Export 
+### Chuyển đổi cũng như khai báo
 ```Python
 users.to_csv("exported-users.csv")
 ```
 
-# Getting and knowing
-### shape : Return (Row, Column)
+# Làm quen và Tìm hiểu
+### shape : Trả về (Row, Column)
 ```Python
 df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4],
                    'col3': [5, 6]})
 df.shape
 (2, 3) # df.shape[0] = 2 row, df.shape[1] = 3 col
 ```
-### info() : Return index dtype, columns, non-null values & memory usage.
+### info() : Trả về index dtype, columns, non-null values & memory usage.
+###                kiễu dữ liệu, cột, giá trị null và chiếm bao nhiêu bộ nhớ
 ```Python
 df.info()
 ```
