@@ -1,7 +1,6 @@
 
 # Làm quen với thư viện Pandas
 # Mục lục
-- [Bảng nội dung dữ liệu](#table-of-contents)
 - [Khai báo & Biến đổi Dữ liệu](#import-export-data)
 - [Bước dầu và Tìm hiểu](#getting-and-knowing)
   - [loc và iloc](#loc-vs-iloc)
