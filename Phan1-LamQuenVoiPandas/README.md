@@ -155,7 +155,7 @@ df.index
 #RangeIndex(start=0, stop=4622, step=1)
 ```
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#Mục-Lục)
 
 ## Kiểm tra cột của bàng dữ liệu
 ### In ra tên của tất cả các cột của Bảng dữ liệu
@@ -192,7 +192,7 @@ index.nunique()
 #5
 ```
 
-[(Back to top)](#table-of-contents)
+[(Back to top)](#Mục-Lục)
 # Manipulating Data
 ## Missing Values: Dữ liệu bị mất
 ### Thay thế Missing Values với fillna() mà vẫn giữ nguyên số hàng và số cột
@@ -210,7 +210,7 @@ car_sales_missing.dropna(inplace=True)
 ```Python
 car_sales.drop("Passed road safety", axis = 1) # axis = 1 Nếu ta muốn loại bỏ cột
 ```
-[(Back to top)](#table-of-contents)
+[(Back to top)](#Mục-Lục)
 # Gộp
 <img width="707" alt="Screenshot 2021-01-23 at 10 47 21 PM" src="https://user-images.githubusercontent.com/64508435/105590696-195aec00-5dcd-11eb-894d-3953d6ea8180.png">
 
@@ -234,4 +234,4 @@ Name: quantity, dtype: int64
 ```Python
 order_revenue = df.groupby(by=["order_id"])["revenue"].sum()
 ```
-[(Back to top)](#table-of-contents)
+[(Back to top)](#Mục-Lục)
