@@ -1,88 +1,78 @@
-### Làm quen với thư viện Pandas
-## Bước 1: Khai báo thư viện
-- Khai báo thư viện Pandas bằng câu lệnh Import Pandas as pd
-- Khai báo thư viện Numpy bằng câu lệnh Import Numpy as np
-## Bước 2: Khai báo bảng dữ liệu (DataSet)
-**Lưu ý đuôi của file có thể là csv, excel, tsv**   
-**Điều kiện chọn lọc là 1 cột 1 dòng có thể là \n: xuống dòng, hoặc \t: khoảng trắng**
-- Khai báo bảng dữ liệu bằng câu lệnh df = pd.read_csv("nguồn/tên_file_đuôi của file" sep = "điều kiện để chọn lọc là 1 cột 1 hàng") //Gắn biến df
-- In ra Bảng dữ liệu bằng câu lệnh df.head("Số hàng muốn in")
-## Bước 3: Có cái nhìn tổng quát trong bảng dữ liệu 
-- Dùng câu lệnh df.shape() để in ra có bao nhiêu hàng bao nhiêu cột trong bảng dữ liệu
-- Dùng câu lệnh df.describe() để in ra các giá trị lớn, nhỏ, trung bình
-- **Lưu ý không dùng describe() với các giá trị thuộc kiểu dữ liệu là xâu chuỗi**
-- Dùng câu lệnh df.info() để ỉn ra các thông tin như kiểu dữ liệu, số dữ liệu của từng cột trong bảng dữ liệu
-- Để biết xâu hơn về bao nhiêu cột có trong bảng dữ liệu, dùng câu lệnh: df.columns
-- Để biết rằng dữ liệu trong bảng dũ liệu sẽ xuất hiện từ index nào dùng câu lệnh: df.index
-### Các câu lệnh khác: 
-#### loc và iloc
-- loc là viết tắt của located tức là vị trí câu lệnh loc cho phép lấy dữ liệu từ các cột mong muốn 
-trong bảng dữ liệu:
+
+# Pandas Cheat Sheet
+# Table of contents
+- [Table of contents](#table-of-contents)
+- [Import & Export Data](#import-export-data)
+- [Getting and knowing](#getting-and-knowing)
+  - [loc vs iloc](#loc-vs-iloc)
+  - [Access Rows of Data Frame](#access-columns-of-data-frame)
+  - [Access Columns of Data Frame](#access-columns-of-data-frame)
+- [Manipulating Data](#manipulating-data)
+- [Grouping](#grouping)
+  - [Basic Grouping](#basic-grouping)
+
+
+# Import Export Data
+### Import with Different Separator
 ```Python
-Vd: df.loc[(df.quantity == 15) | (df.item_name == "Nantucket Nectar")]
-```   
-            Nhằm lấy cột "quantity" có giá trị nào băng 15
-            hoặc lấy cột "item_name" có tên gọi bằng "Nantucket Nectar"
-  
-  => Vậy sẽ lấy cột "quality" bằng 15 hoặc lấy cột "item_name" bằng "Nantucket Nectar" hoặc cột có cả hai giá trị trên
-```Python  
-Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id', 'quantity', 'item_name']]
+users = pd.read_csv('user.csv', sep='|')
+chipo = pd.read_csv(url, sep = "\t")
 ```
-          Nhằm lấy cột "quantity" có giá trị nào bằng 2
-          và lấy cột "item_name" có giá trị là "Nantucket Nectar"
-          trong đó từ bảng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
+<img height="500" alt="pandas-anatomy-of-a-dataframe" src="https://user-images.githubusercontent.com/64508435/111490410-f833cd80-8775-11eb-8527-daf08dc8e91a.png">
 
-  => Vậy sẽ lấy cột "quantity" có giá trị bằng 2 và lấy cột "item_name" có giá trị là "Nantucket Nectar" trong bàng dữ liệu chỉ lấy ra 3 cột là "order_id" , "quantity", "item_name"
-  - Khác với loc thì iloc giúp lấy các hàng có index = n
-    Cú pháp :
-    ```Python
-                df.iloc[hàng có index muốn láy]
-       
-                #Ví dụ là 10 thì sẽ lấy hàng thứ 9
-    ```
-    -Câu lệnh trên nhằm lấy trong bảng dữ liệu hàng có số n thì sẽ lấy hàng thứ n - 1
-    -Chỉ in ra theo kiểu "series" 
-    -Muốn in ra theo hàng trên bảng dữ liệu thì thêm dấu "[]" vào trong "hàng có index muốn lấy" 
-    -Ngoài ra còn có thể dùng câu lệnh "iloc" để lấy hàng bắt đầu cũng như kết thúc **Dựa vào index**
-    ```Pyhton
-
-               df.iloc[index bắt đầu : index kết thúc]
-    ```
-    -Ngoài ra "iloc" còn quan trọng trong việc lấy các cột tùy ý và có thể hữu dụng cho việc dự đoán cũng như phân tích
-    ```Python
-
-                df.iloc[index bắt đầu : index kết thúc, :-1]
-        
-                #In các hàng từ index bắt đầu nhưng bỏ cột cuối : tức từ cột index = 0 đến cột cuối
-    ```
-    -Nếu xây dựng các model cho bài toán ta có thể gắn biến x cho câu lệnh trên và biến y cho câu lệnh lấy hàng cuối cùng
-    ```Python
-                df.iloc[index bắt đầu : index kết thúc, -1] #Câu lệnh lấy cột cuối
-    ```
-#### Apply()
-- Câu lệnh Apply sử dụng nhằm mục đích áp dụng chức năng cho từng cột từng dòng
+#### Renaming Index
 ```Python
-          Vd: df.item_price.apply(lambda x : x.replace('$', ''))
-  ```
-          Lệnh trên nhằm lấy cột item_price dùng lệnh apply() tức áp dụng cho tất cả cá hàng   
-          trong cột "item_price" "lamda" : là lệnh nhật các đầu vào trong trường hợp trên là các    
-          hàng của cột item_price lệnh "replace" nhăm thay thế "$" thành ''
-  => Vậy câu lệnh trên nghĩa chọn cột "item_price" dùng apply() ấp dụng cho tất cả cá hàng của cột bằng cách lưu vào biến lamda thay thế toàn bộ dấu "$" thành ''
-  **Lưu ý phải đổi kiểu dữ liệu trong trường hợp trên có thể viết**
-  ```Python
-  df.item_price.apply(lambda x : float(x.replace('$', '')))
-  ```
-  **Lệnh float nhằm chuyển kiểu dữ liệu từ Objext sang thành Float**
-  **Lưu ý kế tiếp lệnh apply() chỉ áp dụng tạm thời cho dòng câu lệnh nếu muốn lưu hoàn toàn thì phải gán ngược lại với giá trị được lưu**
-  ```Python
-  df.item_price = df.item_price.apply(lambda x : float(x.replace('$', '')))
-  ```
-  *Lưu toàn bộ cột "item_price" trong bảng dữ liệu theo câu lệnh Apply()*   
-  
-Để kiểm tra kiểu dữ liệu của toàn bộ dữ liệu trong bảng dữ liệu : 
-- Dùng câu lệnh dtype()
-  ***Lưu ý khi dùng câu lệnh dtype***
-```Code
+users = pd.read_csv('u.user', sep='|', index_col='user_id')
+```
+### Export 
+```Python
+users.to_csv("exported-users.csv")
+```
+
+# Getting and knowing
+### shape : Return (Row, Column)
+```Python
+df = pd.DataFrame({'col1': [1, 2], 'col2': [3, 4],
+                   'col3': [5, 6]})
+df.shape
+(2, 3) # df.shape[0] = 2 row, df.shape[1] = 3 col
+```
+### info() : Return index dtype, columns, non-null values & memory usage.
+```Python
+df.info()
+```
+- We will understand dtype of cols, how many non-null value of DF
+```Python
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 4622 entries, 0 to 4621
+Data columns (total 5 columns):
+ #   Column              Non-Null Count  Dtype 
+---  ------              --------------  ----- 
+ 0   order_id            4622 non-null   int64 
+ 1   quantity            4622 non-null   int64 
+ 2   item_name           4622 non-null   object
+ 3   choice_description  3376 non-null   object
+ 4   item_price          4622 non-null   object
+dtypes: int64(2), object(3)
+memory usage: 180.7+ KB
+````
+
+### describe() : Generate descriptive statistics.
+```Python
+chipo.describe() #Notice: by default, only the numeric columns are returned. 
+chipo.describe(include = "all") #Notice: By default, only the numeric columns are returned.
+```
+
+
+### dtype : Return data type of specific column
+- `df.col_name.dtype` return the data type of that column
+```Python
+df.item_price.dtype
+#'O'     (Python) objects
+```
+
+- Please note: dtype will return below special character
+```Python
 'b'       boolean
 'i'       (signed) integer
 'u'       unsigned integer
@@ -91,75 +81,154 @@ Vd: df.loc[(df.quantity == 2) & (df.item_name == "Nantucket Nectar"), ['order_id
 'O'       (Python) objects
 'S', 'a'  (byte-)string
 'U'       Unicode
-'V'       raw data (void)
+'V'       raw data (void
 ```
-#### Tạo một cột mới 
--Ví dụ muốn tạo thêm một cột "total_price" bằng tích của  "item_price" và "quantity"
+
+## loc vs iloc
+### loc
+- `loc`: is **label-based**, which means that we have to specify the "name of the rows and columns" that we need to filter out.
+#### Find all the rows based on 1 or more conditions in a column
 ```Python
-            df["total_price"] = df["item_price"]*df["quantity"]
+# select all rows with a condition
+data.loc[data.age >= 15]
+# select all rows with multiple conditions
+data.loc[(data.age >= 12) & (data.gender == 'M')]
 ```
-Ví dụ muốn biết tổng toàn bộ doanh thu
+![image](https://user-images.githubusercontent.com/64508435/106067849-7abaec00-613a-11eb-8cbe-f9aa5e2c6202.png)
+
+#### Select only required columns with conditions
 ```Python
-            revenue = df["total_price"].sum()
-            print(revenue)
+# Update the values of multiple columns on selected rows
+chipo.loc[(chipo.quantity == 7) & (chipo.item_name == 'Bottled Water'), ['item_name', 'item_price']] = ['Tra Xanh', 0]
+# Select only required columns with a condition
+chipo.loc[(chipo.quantity > 5), ['item_name', 'quantity', 'item_price']]
 ```
-#### Xác định xem vật nào xuất hiện nhiều nhất trong bảng dữ liệu ####
-#### Group By ####
-Lệnh Group By dùng khi muốn gộp các bảng dữ liệu nhỏ theo các tên của các cột để biết được có bao nhiêu   
-lần xuất hiện của dữ liệu có trong bảng 
+<img width="381" alt="Screenshot 2021-01-28 at 7 26 04 AM" src="https://user-images.githubusercontent.com/64508435/106067706-32033300-613a-11eb-98ce-114c4c0f9dd6.png">
+
+### iloc
+- `iloc`: is **index-based**, which means that we have to specify the "integer index-based" that we need to filter out.
+- `.iloc[]` allowed inputs are:
+  #### Selecting Rows
+  - An integer, e.g. `dataset.iloc[0]` > return row 0 in `<class 'pandas.core.series.Series'>`
+  ```Python
+  Country      France
+  Age              44
+  Salary        72000
+  Purchased        No
+  ```
+  - A list or array of integers, e.g.`dataset.iloc[[0]]` > return row 0 in DataFrame format
+  ```Python
+     Country   Age   Salary  Purchased
+  0  France    44.0  72000.0        No
+  ```
+  - A slice object with ints, e.g. `dataset.iloc[:3]` > return row 0 up to row 3 in DataFrame format
+  ```Python
+       Country   Age   Salary Purchased
+  0    France   44.0  72000.0        No
+  1    Spain    27.0  48000.0       Yes
+  2    Germany  30.0  54000.0        No
+  ```
+  #### Selecting Rows & Columns
+  - Select First 3 Rows & up to Last Columns (not included) `X = dataset.iloc[:3, :-1]`
+  ```Python
+       Country   Age   Salary
+  0   France  44.0  72000.0
+  1    Spain  27.0  48000.0
+  2  Germany  30.0  54000.0
+  ```
+### Numpy representation of DF
+- `DataFrame.values`: Return a Numpy representation of the DataFrame (i.e: Only the values in the DataFrame will be returned, the axes labels will be removed)
+- For ex: `X = dataset.iloc[:3, :-1].values`
 ```Python
-
-            df.groupby("item_name") 
-
-            #Hàm trên chỉ trả lại thông báo đã tạo ra một bảng dữ liệu mới chứ không tả lại giá trị
-
-            df.groupby("item_name").apply(print)
-
-            """Đê cho bảng dược xuất hiện sử dụng câu lệnh Apply(print nhằm dán các tác động lên từng   
-            hàng của cột "item_name" """
+[['France' 44.0 72000.0]
+ ['Spain' 27.0 48000.0]
+ ['Germany' 30.0 54000.0]]
 ```
-Tuy nhiên ở đây ta chỉ quan tâm số lượng của theo cột "item_name" tức "quantity" do đó ta cần thêm dấu "[]"  
-để chỉ in ra cột "quantity"
+
+## Access Rows of Data Frame
+### Check index of DF
 ```Python
-            df.groupby("item_name")["quantiy"].apply(print)
-
-            """Câu lệnh trên đặt cột "quantity" vào dấu ngoặc vuông nhằm chỉ lấy cột "quantity"
-            ứng với cột "item_name" và in ra ngoài màn hình"""
+df.index
+#RangeIndex(start=0, stop=4622, step=1)
 ```
-Để cộng lại ta dùng hàm **sum()**
+
+[(Back to top)](#table-of-contents)
+
+## Access Columns of Data Frame
+### Print the name of all the columns
 ```Python
-            df.groupby("item_name")["quantity].sum()
-
-            #Câu lệnh trên sẽ in ra "quantity" của từng item ứng với "item_name" khác nhau có trong băng
+list(df.columns)
+#['order_id', 'quantity', 'item_name', 'choice_description','item_price', 'revenue']
 ```
-Để sắp xếp giá trị tăng hay giảm dần ta dùng hàm **sort_values()**
+### Access column
 ```Python
-            c = df.groupby("item_name")["quantity].sum()
-
-            #Câu lệnh trên nhằm gán biến c cho tổng của các item
-
-            c.sort_values()
-
-            #Câu lệnh này rắp xếp các gia trí, dữ liệu của bảng
+# Counting how many values in the column
+df.col_name.count()
+# Take the mean of values in the column
+df["col_name"].mean()
 ```
-#### Lưu ý: Nếu sắp xếp giảm dần thì cho "sort_values(ascending = false)" mặc định của "sort_values" là tăng dần
--Dùng hàm head() để in ra top món hàng cao nhất mà bạn mong muốn 
-#### Unique Values: Hay là dữ liệu không trung lặp ( Dữ liệu khác nhau )
--Dùng hàm **values_counts()** để đếm số lần giá trị khác nhau xuất hiện trong bảng theo một giá trị nào đó
+### value_counts() : Return a Series containing counts of unique values
 ```Python
-            df.item_name.values_counts()
-  
-            """Giống với hàm groupby() hàm values_counts() giúp tính những món hàng
-
-            khác nhau trong cột "item_name" """
+index = pd.Index([3, 1, 2, 3, 4, np.nan])
+#dropna=False will also consider NaN as a unique value 
+index.value_counts(dropna=False)
+#Return: 
+3.0    2
+2.0    1
+NaN    1
+4.0    1
+1.0    1
+dtype: int64
 ```
--Dùng thêm một hàm **counts()** để đếm xem tông cộng bao nhiêu món hàng được đếm ra
--Ngoài ra, trong Pandas còn có hàm chuyên dùng để tính những giá trị khác nhau có trong bảng chính là hàm **nunique()**
+### Calculate total unique values in a columns
 ```Python
-            df.item_name.nunique()
+#How many unique values 
+index.value_counts().count()
 
-            #Vân in ra giá trị giống với khi xài  "df.item_name.values_counts().count()"
+index.nunique()
+#5
 ```
-### Đó là những thao tác quan trọng trong việc thao tác trên bảng dữ liệu và tìm kiếm thông tin mà mình muốn   
-### Để có thể đến các bước tiếp theo nhằm xây dựng các module máy học, thực hiện thuật toán, hay dự đoán
-            
+
+[(Back to top)](#table-of-contents)
+# Manipulating Data
+## Missing Values
+### Filling Missing Values with fillna()
+- To fill `nan` value with a v
+```Python
+car_sales_missing["Odometer"].fillna(car_sales_missing["Odometer"].mean(), inplace = True)
+```
+### Dropping Missing Values with dropna()
+- To drop columns containing Missing Values
+```Python
+car_sales_missing.dropna(inplace=True)
+```
+## Drop a column
+
+```Python
+car_sales.drop("Passed road safety", axis = 1) # axis = 1 if you want to drop a column
+```
+[(Back to top)](#table-of-contents)
+# Grouping
+<img width="707" alt="Screenshot 2021-01-23 at 10 47 21 PM" src="https://user-images.githubusercontent.com/64508435/105590696-195aec00-5dcd-11eb-894d-3953d6ea8180.png">
+
+## Basic Grouping
+- Grouping by "item_name" column & take the sum of "quantity" column
+- Method #1 : `df.groupby("item_name")`
+
+```Python
+df.groupby("item_name")["quantity"].sum()
+```
+
+```Python
+item_name
+Chicken Bowl       761
+Chicken Burrito    591
+Name: quantity, dtype: int64
+```
+
+- Method #2: `df.groupby(by=['order_id'])`
+
+```Python
+order_revenue = df.groupby(by=["order_id"])["revenue"].sum()
+```
+[(Back to top)](#table-of-contents)
