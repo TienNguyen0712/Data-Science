@@ -236,7 +236,7 @@ order_revenue = df.groupby(by=["order_id"])["revenue"].sum()
 ```
 ## Tạo DataFrame từ dữ liệu Mảng hay thô
 ```Python
-pd.DatataFrame(dữ liệu đầu vào, index = [tên hàng 1, tên hàng 2, ...], columns = [tên cột 1, tên cột 2, ...])
+pd.DataFrame(dữ liệu đầu vào, index = [tên hàng 1, tên hàng 2, ...], columns = [tên cột 1, tên cột 2, ...])
 ```
 
 [(Back to top)](#Mục-Lục)
