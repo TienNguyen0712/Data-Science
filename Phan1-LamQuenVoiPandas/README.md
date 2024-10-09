@@ -238,7 +238,7 @@ order_revenue = df.groupby(by=["order_id"])["revenue"].sum()
 ```Python
 pd.DataFrame(dữ liệu đầu vào, index = [tên hàng 1, tên hàng 2, ...], columns = [tên cột 1, tên cột 2, ...])
 ```
-```Pyhton
+```Python
 import pandas as pd 
 pd.DataFrame(sales_amounts, index = ["Mon", "Tues", "Wed ","Thurs", "Fri"],
                                             columns = ["Almond Butter", "Peanut Butter","Cashew Butter"])
