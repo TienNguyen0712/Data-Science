@@ -9,6 +9,7 @@
 - [Chuyển đổi Dữ Liệu](#manipulating-data)
 - [Grouping: Gộp](#grouping)
   - [Grouping Cơ bản](#basic-grouping)
+  - [Tạo DataFrame từ dữ liệu thô](#creating-dataframe)
 
 
 # Khai báo và Chuyển đổi dữ liệu
@@ -233,4 +234,9 @@ Name: quantity, dtype: int64
 ```Python
 order_revenue = df.groupby(by=["order_id"])["revenue"].sum()
 ```
+## Tạo DataFrame từ dữ liệu Mảng hay thô
+```Python
+pd.DatataFrame(dữ liệu đầu vào, index = [tên hàng 1, tên hàng 2, ...], columns = [tên cột 1, tên cột 2, ...])
+```
+
 [(Back to top)](#Mục-Lục)
