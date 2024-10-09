@@ -243,6 +243,6 @@ import pandas as pd
 weekly_series = pd.DataFrame(sales_amounts, index = ["Mon", "Tues", "Wed ","Thurs", "Fri"],
                                             columns = ["Almond Butter", "Peanut Butter","Cashew Butter"])
 ```
-DataFrame: ![image](https://github.com/TienNguyen0712/Note/blob/main/Screenshot%202024-10-09%20093835.png)
+DataFrame: ![image](https://github.com/TienNguyen0712/Note/blob/main/Screenshot%202024-10-09%20094055.png)
 
 [(Back to top)](#Mục-Lục)
