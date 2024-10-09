@@ -240,10 +240,9 @@ pd.DataFrame(dữ liệu đầu vào, index = [tên hàng 1, tên hàng 2, ...],
 ```
 ```Pyhton
 import pandas as pd 
-weekly_series = pd.DataFrame(sales_amounts, index = ["Mon", "Tues", "Wed ","Thurs", "Fri"],
+pd.DataFrame(sales_amounts, index = ["Mon", "Tues", "Wed ","Thurs", "Fri"],
                                             columns = ["Almond Butter", "Peanut Butter","Cashew Butter"])
-```
-DataFrame:   
+``` 
   ![image](https://github.com/TienNguyen0712/Note/blob/main/Screenshot%202024-10-09%20094055.png)
 
 [(Back to top)](#Mục-Lục)
