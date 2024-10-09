@@ -238,5 +238,11 @@ order_revenue = df.groupby(by=["order_id"])["revenue"].sum()
 ```Python
 pd.DataFrame(dữ liệu đầu vào, index = [tên hàng 1, tên hàng 2, ...], columns = [tên cột 1, tên cột 2, ...])
 ```
+```Pyhton
+import pandas as pd 
+weekly_series = pd.DataFrame(sales_amounts, index = ["Mon", "Tues", "Wed ","Thurs", "Fri"],
+                                            columns = ["Almond Butter", "Peanut Butter","Cashew Butter"])
+```
+DataFrame: ![image](https://github.com/TienNguyen0712/Note/blob/main/Screenshot%202024-10-09%20093835.png)
 
 [(Back to top)](#Mục-Lục)
