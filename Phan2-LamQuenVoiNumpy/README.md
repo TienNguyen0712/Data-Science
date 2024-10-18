@@ -86,11 +86,14 @@ np.split(Tên mảng muốn chia, [Ví trí bắt đầu muốn chia, Ví trí k
 ```
 ### Thực hiện các phép tính trên các Mảng Numpy có kích thước khác nhau với nhau
 * Dùng `Tên mảng + Số bất kỳ` để thực hiện phép cộng cho Mảng
-<img width="300" alt="image1" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_1.png">     
+<img width="300" alt="image1" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_1.png">
+
 * Dùng `Tên mảng + Tên mảng` để thực hiện phép cộng cho hai mảng khác nhau
-<img width="400" alt="image2" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_2.png">     
+<img width="400" alt="image2" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_2.png">
+
 * Lưu ý không thể thực hiện phép toàn với các Mảng có size lớn hơn
-<img width="500" alt="image3" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_3.png">       
+<img width="500" alt="image3" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_3.png">
+
 ### Thực hiện các phép toán với các thành phần trong Mảng Numpy ( Nên dùng các hàm trong Numpy vì tốc độ nhanh cũng như tiết kiệm bộ nhớ )    
 * Dùng `np.sum()` để tính tổng các thành phần có trong mảng   
    * Hàm `np.sum()` được xây dựng và thực hiện thao tác nhanh hơn hàm `sum()` mà Python có     
