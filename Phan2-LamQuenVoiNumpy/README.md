@@ -56,7 +56,7 @@ np.random.randint( Số bắt đầu, Số kết thúc, (Hàng, Cột)) # type m
 np.random.rand(hàng, cột)
 ```
 ### Tiếp cận vị trí giá trị trong Mảng Numpy bằng Index và Cắt mảng
-* Dùng `Tên mảng[index giá trị cần tiếp cận ]` để tiếp cận giá trị mình muốn
+* Dùng `Tên mảng[ index giá trị cần tiếp cận ]` để tiếp cận giá trị mình muốn
 * Dùng `Tên mảng[-1]` để tiếp cận giá trị cuối của mảng
 * Ngoài ra với các Mảng nhiều chiều cũng có thể tiếp cận bằng cách dùng Index
 * Ta cũng có thể dùng Index để thay đổi giá trị với giá trị đã sẵn có trong mảng bằng toán từ gán `=`
@@ -67,7 +67,7 @@ np.random.rand(hàng, cột)
 ```Python
 Tên mảng.reshape((Hàng, Cột))
 ```
-* Dùng `.T` để chuyện vị cho ma trận
+* Dùng `.T` để chuyển vị cho ma trận
 ```Python
 Tên mảng.T
 ```
@@ -76,13 +76,13 @@ Tên mảng.T
 ```Python
 np.concatenate((Tên mảng muốn nối thứ 1, Tên mảng muốn nối thứ 2), axis = 0/1)
 # axis = 1 : Nối theo cột
-  axis = 0 : Nối theo hàng ( Mặc định )
+# axis = 0 : Nối theo hàng ( Mặc định )
 ```
 * Dùng `np.vstack((Tên mảng 1, Tên mảng 2))` giúp nối các Mảng theo cột với nhau
 * Dùng `np.hstack((Tên mảng 1, Tên mảng 2))` giúp nối các Mảng theo hàng với nhau
-* Dùng `split` để tách chia nhỏ Mảng
+* Dùng `np.split` để tách chia nhỏ Mảng
 ```Python
-no.split(Tên mảng muốn chia, [Ví trí bắt đầu muốn chia, Ví trí kết thúc chia])
+np.split(Tên mảng muốn chia, [Ví trí bắt đầu muốn chia, Ví trí kết thúc chia])
 ```
 ### Thực hiện các phép tính trên các Mảng Numpy có kích thước khác nhau với nhau
 * Dùng `Tên mảng + Số bất kỳ` để thực hiện phép cộng cho Mảng
