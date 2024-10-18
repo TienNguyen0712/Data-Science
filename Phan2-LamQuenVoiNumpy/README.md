@@ -74,7 +74,7 @@ Tên mảng.T
 ### Nổi những Mảng Numpy và Chia nhỏ Mảng Numpy
 * Dùng `concatenate` để nối những mảng khác nhau với nhau
 ```Python
-np.concatenat((Tên mảng muốn nối thứ 1, Tên mảng muốn nối thứ 2), axis = 0/1)
+np.concatenate((Tên mảng muốn nối thứ 1, Tên mảng muốn nối thứ 2), axis = 0/1)
 # axis = 1 : Nối theo cột
   axis = 0 : Nối theo hàng ( Mặc định )
 ```
