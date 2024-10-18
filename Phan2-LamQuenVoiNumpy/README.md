@@ -106,8 +106,7 @@ np.split(Tên mảng muốn chia, [Ví trí bắt đầu muốn chia, Ví trí k
 Là kích thước đo độ phân tán của dữ liệu ( So sánh với giá trị trung bình )     
 * Dùng `np.std( Tên của Mảng )` để tính độ lệch chuẩn của dữ liệu có trong mảng    
 #### Variance: Phương Sai      
-Lấy từng điểm dữ liệu một trừ đi cho giá trị trung bình rồi bình phương chính nó lên sau đó làm với những điểm khác rồi tính trung bình của chúng      
-[Xem thêm tại đây](https://www.mathsisfun.com/data/standard-deviation.html)     
+Lấy từng điểm dữ liệu một trừ đi cho giá trị trung bình rồi bình phương chính nó lên sau đó làm với những điểm khác rồi tính trung bình của chúng [Xem thêm tại đây](https://www.mathsisfun.com/data/standard-deviation.html)     
 Dựa vào phương sai người ta có thể phân loại dữ liệu cũng như đánh giá một cách chính xác và chi tiết hơn
 * Dùng `np.var( Tên của Mảng )` để tính phương sai cho dữ liệu có trong Mảng
 ### Sắp xếp Mảng
