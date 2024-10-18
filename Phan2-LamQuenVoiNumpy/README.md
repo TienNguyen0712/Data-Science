@@ -87,5 +87,5 @@ no.split(Tên mảng muốn chia, [Ví trí bắt đầu muốn chia, Ví trí k
 ### Thực hiện các phép tính trên các Mảng Numpy có kích thước khác nhau 
 <img width="300" alt="image1" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_1.png">
 <img width="400" alt="image2" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_2.png">
-<img position = "right" width="500" alt="image3" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_3.png">
+<img width="500" alt="image3" src = "https://github.com/TienNguyen0712/Note/blob/main/broadcasting_3.png">
 
