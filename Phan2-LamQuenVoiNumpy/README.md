@@ -1,0 +1,11 @@
+## Tìm hiểu về thư viện Numpy
+Thư viện Numpy đươc xây dựng dựa trên ngôn ngữ C cung cấp cho ta nhừng hàm phương thức để tương   
+tác với các kiểu dữ liệu dạng sô ( Numberic )
+* Trong Python kiểu dữ liệu gộp chung chúng thành `List`
+    * Bao gồm toàn bộ các kiểu dữ liệu : int, float, str, ... 
+### Tạo mảng ở trong thư viện Numpy từ `List Python`
+```Python
+np.array( Mảng muốn tạo )
+```
+* Với `List` trong Python có thể lưu trữ các kiểu dữ liệu số khác nhau. Tuy nhiên khi xuất Python sẽ
+  tự động chuyển về kiểu dữ liệu mặc định hoặc cao hơn `float64`
