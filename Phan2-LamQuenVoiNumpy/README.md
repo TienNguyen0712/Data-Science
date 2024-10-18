@@ -9,6 +9,7 @@ np.array( Mảng muốn tạo , dtype = 'Kiểu dữ liệu muốn đồng bộ 
 ```
 * Với `List` trong Python có thể lưu trữ các kiểu dữ liệu số khác nhau. Tuy nhiên khi xuất Python sẽ
   tự động chuyển về kiểu dữ liệu mặc định hoặc cao hơn `float64`
-### `ndim` để xác định số chiều của mảng 
-### `shape` để xác định số hàng và cột của mảng
-### `size` để xác định số thành phần có trong mảng 
+* Các thao tác thực hiện với mẩng Numpy
+  * `ndim` để xác định số chiều của mảng 
+  * `shape` để xác định số hàng và cột của mảng
+  * `size` để xác định số thành phần có trong mảng 
