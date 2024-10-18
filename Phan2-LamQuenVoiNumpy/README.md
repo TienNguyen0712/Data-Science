@@ -13,3 +13,4 @@ np.array( Mảng muốn tạo , dtype = 'Kiểu dữ liệu muốn đồng bộ 
   * `ndim` để xác định số chiều của mảng 
   * `shape` để xác định số hàng và cột của mảng
   * `size` để xác định số thành phần có trong mảng 
+## Tạo Numpy Array từ các hàm được xây dựng sẵn trong Numpy
