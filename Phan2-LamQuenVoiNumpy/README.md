@@ -13,4 +13,16 @@ np.array( Mảng muốn tạo , dtype = 'Kiểu dữ liệu muốn đồng bộ 
   * `ndim` để xác định số chiều của mảng 
   * `shape` để xác định số hàng và cột của mảng
   * `size` để xác định số thành phần có trong mảng 
-### Tạo Numpy Array từ các hàm được xây dựng sẵn trong Numpy
+### Tạo Numpy Array từ các hàm được xây dựng sẵn
+#### `zeros` `ones` `full` `arange` `linspace`
+* Hàm `zeros` giúp tạo ra mảng Python chứa toàn bộ là số "0"
+```Python
+np.zeros( [hàng, cột], dtype = 'Kiểu dữ liệu')
+```
+   * Nếu không có dtype thì hàm mặc định là kiểu `float64`
+* Hàm `ones` giúp tạo ra mảng Python chứa toàn bộ là số "1"
+```Python
+np.ones( [hàng, cột], dtype = 'Kiểu dữ liệu')
+```
+ 
+* 
