@@ -5,7 +5,10 @@ tác với các kiểu dữ liệu dạng sô ( Numberic )
     * Bao gồm toàn bộ các kiểu dữ liệu : int, float, str, ... 
 ### Tạo mảng ở trong thư viện Numpy từ `List Python`
 ```Python
-np.array( Mảng muốn tạo )
+np.array( Mảng muốn tạo , dtype = 'Kiểu dữ liệu muốn đồng bộ hóa')
 ```
 * Với `List` trong Python có thể lưu trữ các kiểu dữ liệu số khác nhau. Tuy nhiên khi xuất Python sẽ
   tự động chuyển về kiểu dữ liệu mặc định hoặc cao hơn `float64`
+### `ndim` để xác định số chiều của mảng 
+### `shape` để xác định số hàng và cột của mảng
+### `size` để xác định số thành phần có trong mảng 
