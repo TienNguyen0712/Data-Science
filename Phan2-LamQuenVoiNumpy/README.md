@@ -19,7 +19,7 @@ np.array( Mảng muốn tạo , dtype = 'Kiểu dữ liệu muốn đồng bộ 
 ```Python
 np.zeros( [hàng, cột], dtype = 'Kiểu dữ liệu')
 ```
-   * Nếu không có dtype thì hàm mặc định là kiểu `float64`
+      * Nếu không có dtype thì hàm mặc định là kiểu `float64`
 * Hàm `ones` giúp tạo ra mảng Python chứa toàn bộ là số "1"
 ```Python
 np.ones( [hàng, cột], dtype = 'Kiểu dữ liệu')
