@@ -104,15 +104,30 @@ np.split(Tên mảng muốn chia, [Ví trí bắt đầu muốn chia, Ví trí k
 ### Sác xuất thống kê     
 #### Standard Deviation: Độ Lệch Chuẩn      
 Là kích thước đo độ phân tán của dữ liệu ( So sánh với giá trị trung bình )     
-* Dùng `np.std( Tên của Mảng )` để tính độ lệch chuẩn của dữ liệu có trong mảng    
+* Dùng `np.std( Tên của Mảng )` để tính độ lệch chuẩn của dữ liệu có trong mảng
+```Python
+np.std( Tên của mảng )
+```
 #### Variance: Phương Sai      
 Lấy từng điểm dữ liệu một trừ đi cho giá trị trung bình rồi bình phương chính nó lên sau đó làm với những điểm khác rồi tính trung bình của chúng [Xem thêm tại đây](https://www.mathsisfun.com/data/standard-deviation.html)     
 Dựa vào phương sai người ta có thể phân loại dữ liệu cũng như đánh giá một cách chính xác và chi tiết hơn
 * Dùng `np.var( Tên của Mảng )` để tính phương sai cho dữ liệu có trong Mảng
+```Python
+np.var(' Tên của Mảng cần tính phương sai ')
+```
 ### Sắp xếp Mảng
 * Dùng `np.sort( Tên của Mảng )` để sắp xếp các thành phần trong Mảng theo thuật toán Quick Sort
+```Python
+np.sort(Tên của Mảng)
+```
 * Dùng `np.argsort( Tên cảu Mảng )` để trả về Index của các thành phần trước khi hàm `sort()` được gọi
 * Ngoài ra còn có thể dùng hàm `sort()` cho các ma trận, hay Mảng đa chiều nhưng phải thêm `axis = 1/0` 1: xếp theo hàng 0: xếp thep cột     
 ### Đại số tuyến tính
 * Dùng `Tên ma trận A.dot(Tên ma trận B)` để tính tích vô hướng của ma trận lưu ý rằng số hàng của ma trận A phải bằng với số cột của ma trận B
+```Python
+MatA.dot(MatB) # Tính tích vô hướng của ma trận A và ma trận B
+```
 * Cũng có thể dùng `Tên ma trận A @ Tên ma trận B` để tính tích vô hướng của 2 ma trận A và B kết quả giống như lệnh `dot()`
+```Python
+MatA @ MatB # Tính tích vô hướng của hai ma trận A và B
+```
