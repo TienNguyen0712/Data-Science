@@ -112,5 +112,7 @@ Dựa vào phương sai người ta có thể phân loại dữ liệu cũng nh�
 ### Sắp xếp Mảng
 * Dùng `np.sort( Tên của Mảng )` để sắp xếp các thành phần trong Mảng theo thuật toán Quick Sort
 * Dùng `np.argsort( Tên cảu Mảng )` để trả về Index của các thành phần trước khi hàm `sort()` được gọi
-* Ngoài ra còn có thể dùng hàm `sort()` cho các ma trận, hay Mảng đa chiều nhưng phải thêm `axis = 1/0` 1: xếp theo hàng 0: xếp thep cột
+* Ngoài ra còn có thể dùng hàm `sort()` cho các ma trận, hay Mảng đa chiều nhưng phải thêm `axis = 1/0` 1: xếp theo hàng 0: xếp thep cột     
 ### Đại số tuyến tính
+* Dùng `Tên ma trận A.dot(Tên ma trận B)` để tính tích vô hướng của ma trận lưu ý rằng số hàng của ma trận A phải bằng với số cột của ma trận B
+* Cũng có thể dùng `Tên ma trận A @ Tên ma trận B` để tính tích vô hướng của 2 ma trận A và B kết quả giống như lệnh `dot()`
